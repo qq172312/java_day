@@ -100,6 +100,7 @@ public class Algorithm {
                 high--;
             }
         }
+
         testRandom[low]=testRandom[0];
         return low;
     }
