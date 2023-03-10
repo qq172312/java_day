@@ -6,7 +6,8 @@ public class Algrun {
 
         long stime=System.nanoTime();//开始时间
 
-        one.bubbleSort();
+        one.quickinsert(1, one.arrayNum-1);
+        //one.bubbleSort();
         //one.dInsertSort();
         //one.shellSort(5);
 

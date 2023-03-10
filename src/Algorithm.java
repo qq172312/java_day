@@ -33,6 +33,7 @@ public class Algorithm {
         }
         System.out.print("\n直接插入排序:");
     }
+
     //希尔排序
     public void shellSort(int dknum){
         for(int i=dknum-1;i>-1;i--){
@@ -73,4 +74,33 @@ public class Algorithm {
         }
     }
 
+    //快速选择排序
+    public void quickinsert(int s,int t){
+        if(s<t){
+            int i=quickSort(s,t);
+            quickinsert(s, i-1);
+            quickinsert(i+1,t);
+        }
+    }
+
+    public int quickSort(int low,int high)
+    {
+        testRandom[0]=testRandom[low];
+        while(low!=high){
+            while (low<high&&testRandom[high]>testRandom[0])
+                high--;
+            if(low<high){
+                testRandom[low]=testRandom[high];
+                low++;
+            }
+            while (low<high&&testRandom[low]<testRandom[0])
+                low++;
+            if(low<high){
+                testRandom[high]=testRandom[low];
+                high--;
+            }
+        }
+        testRandom[low]=testRandom[0];
+        return low;
+    }
 }
