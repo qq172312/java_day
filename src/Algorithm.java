@@ -104,4 +104,56 @@ public class Algorithm {
         testRandom[low]=testRandom[0];
         return low;
     }
+
+    //简单选择排序
+    public void selectSort(){
+        int mark=0;
+        for(int i=1;i<arrayNum;i++) {
+            testRandom[0]=testRandom[i];
+            for (int j = i + 1; j < arrayNum; j++) {
+                if (testRandom[j] < testRandom[0]){
+                    testRandom[0]=testRandom[j];
+                    mark=j;
+                }
+            }
+            testRandom[mark]=testRandom[i];
+            testRandom[i]=testRandom[0];
+        }
+    }
+
+    //堆排序
+    public void heapSort(){
+        int i;
+        for(i=(arrayNum/2);i>=1;i--) {
+            heapAdjust(i, arrayNum-1);
+        }
+        for(i=arrayNum-1;i>1;i--){
+            testRandom[0]=testRandom[1];
+            testRandom[1]=testRandom[i];
+            testRandom[i]=testRandom[0];
+            heapAdjust(1,i-1);
+        }
+    }
+
+    public void heapAdjust(int s,int t){
+        testRandom[0]=testRandom[s];
+        int i=s;
+        int j=2*i;
+        while(j<=t){
+            if((j<t)&&(testRandom[j]<testRandom[j+1])){
+                j=j+1;
+            }
+            if(testRandom[0]<=testRandom[j]){
+                testRandom[i]=testRandom[j];
+                i=j;
+                j=2*i;
+            }else break;
+        }
+        testRandom[i]=testRandom[0];
+    }
+
+    //二路归并排序
+    public void two_MergeSort(){
+
+    }
 }
