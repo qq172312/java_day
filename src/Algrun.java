@@ -14,6 +14,7 @@ public class Algrun {
         //one.dInsertSort();
         //one.shellSort(5);
 
+
         long etime=System.nanoTime();//结束时间
         System.out.printf("\n消耗 %d 纳秒时间\n",(etime-stime));
         one.outPutNum();
