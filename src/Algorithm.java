@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Algorithm {
-    private int[] testRandom;
+    public int[] testRandom;
     private int[] dk=new int[]{1,2,4,8,16};
     Random r=new Random();
     int arrayNum;
@@ -153,7 +153,33 @@ public class Algorithm {
     }
 
     //二路归并排序
-    public void two_MergeSort(){
+    public void two_MergeSort(int[] SR,int[] TR1,int s,int t){
+        int m;
+        int[] TR2=new int[arrayNum];//空数组存放排序好的数
+        if(s==t){
+            TR1[s]=SR[s];//如果一组只剩一个，则跳出递归
+        }else {
+            m = (s + t) / 2;
+            two_MergeSort(SR,TR2, s, m);
+            two_MergeSort(SR,TR2,m + 1, t);
+            merge(TR2, TR1, s, m, t);
+        }
+    }
 
+    public void merge(int[] SR,int[] TR,int i,int m,int n){
+        int k,j,l;
+            for(j=m+1,k=i;i<=m&&j<=n;k++){
+                if(SR[i]<SR[j])
+                    TR[k]=SR[i++];
+                else TR[k]=SR[j++];
+            }
+            if(i<=m){
+                for(l=0;l<=m-i;l++)
+                    TR[k+l]=SR[i+l];
+            }
+            if(j<=n){
+                for(l=0;l<=n-j;l++)
+                    TR[k+l]=SR[j+l];
+            }
     }
 }

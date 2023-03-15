@@ -1,12 +1,13 @@
 public class Algrun {
     public static void main(String[] args){
-        Algorithm one=new Algorithm(50);
+        Algorithm one=new Algorithm(60);
        // one.productRandom();
         one.outPutNum();
 
         long stime=System.nanoTime();//开始时间
 
-        one.heapSort();
+        one.two_MergeSort(one.testRandom,one.testRandom,1, one.arrayNum-1);
+        //one.heapSort();
         //one.selectSort();
         //one.quickinsert(1, one.arrayNum-1);
         //one.bubbleSort();
