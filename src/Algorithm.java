@@ -134,7 +134,7 @@ public class Algorithm {
             heapAdjust(1,i-1);
         }
     }
-
+//
     public void heapAdjust(int s,int t){
         testRandom[0]=testRandom[s];
         int i=s;
