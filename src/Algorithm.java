@@ -183,4 +183,31 @@ public class Algorithm {
                     TR[k+l]=SR[j+l];
             }
     }
+
+    //二分查询
+    public void binarySearch(int[] arrayNum,int queryNum,int low,int high){
+        int mid=0;
+        boolean flag=false;
+        while(low<=high){
+            mid=low+(high-low)/2;
+            //判断是否寻找到
+            if(queryNum==arrayNum[mid]){
+                flag=true;
+                break;
+            }
+
+            if(arrayNum[mid]<queryNum){
+                low=mid+1;
+            }else {
+                high=mid-1;
+            }
+        }
+        if(flag){
+            System.out.println("" +
+                    "\n已找到,"+(mid+1)+" 号元素: "+arrayNum[mid]);
+        }else{
+            System.out.println("未找到"+queryNum);
+        }
+    }
+
 }
